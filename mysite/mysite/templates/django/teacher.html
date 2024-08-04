@@ -26,6 +26,23 @@
         </div>
       </nav>
     <h1>welcome to our site </h1>
+    <h1>you have visited this site <{{ visitTime }}> time(s)</h1>
+    {% for teacher in teachersList %}
+    <div class="card bg-dark text-white">
+      <img class="card-img" src="{{ teacher.image}}" alt="Card image">
+      <div class="card-img-overlay">
+        <h5 class="card-title">{{ teacher.first_name}} {{ teacher.last_name}} </h5>
+        <p class="card-text">{{ teacher.specialize}}</p>
+        <p class="card-text">{{ teacher.description}}</p>
+      </div>
+    </div>
+    <h1>{{ teacher.first_name}}</h1>
+    <h1>{{ teacher.last_name}}</h1>
+    <h1>{{ teacher.specialize}}</h1>
+    <h1>{{ teacher.description}}</h1>
+
+    <img srce="{{ teacher.image}}"/>
+    {% endfor %}
     
 </body>
 </html>

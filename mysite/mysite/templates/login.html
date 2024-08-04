@@ -9,6 +9,10 @@
     {% bootstrap_javascript %}
 </head>
 <body>
+  {% extends 'base.html'}
+  {% block content %}
+
+ 
  <h1>welcome to login page</h1>   
  <!-- Pills navs -->
 <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
@@ -154,5 +158,6 @@
     </div>
   </div>
   <!-- Pills content -->
+  {% endblock %}
 </body>
 </html>

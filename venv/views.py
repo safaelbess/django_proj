@@ -5,15 +5,34 @@ from django.shortcuts import redirect
 
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from .models import Teacher
 
 ## login required page is added before the view or page that is needed to
 #  be logged in before open or reach it
 @login_required(login_url='/login/')
 def index(request):
-    return render(request,'index.html')
+    if request.method=="GET":
+      teachersList=Teacher.objects.all()
+      print(teachersList)
+      try:
+         
+       visitTime = request.session('visitTime')  
+       print('try',visitTime)
+      except:       
+       request.session('visitTime') =0
+       visitTime = request.session('visitTime')
+
+      visitTime +=1
+      request.session('visitTime') =visitTime
+      context={
+         'visitTime':visitTime,
+         'teachersList':teachersList
+      }
+      print('visitTime',visitTime)
+      return render(request,'index.html')
 
 
-
+ 
 def login_page(request):
     if request.method == 'POST':
         username = request.POST.get('username')
