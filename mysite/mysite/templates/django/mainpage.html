@@ -1,0 +1,9 @@
+{% extends base.html %}
+{% block content %}
+<h1>home page</h1>
+{% if forms.error %}
+<p>invalid username or password</p>
+{% endif %}
+<p>elcome to the main page! </p>
+<p>number of visit : {{ visitTime }} </p>
+{ % end block %}

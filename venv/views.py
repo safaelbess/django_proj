@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-from .models import Teacher
+from .models import Teacher , Student , Subject
 
 ## login required page is added before the view or page that is needed to
 #  be logged in before open or reach it
@@ -13,6 +13,7 @@ from .models import Teacher
 def index(request):
     if request.method=="GET":
       teachersList=Teacher.objects.all()
+      num_students= Student.objects.count()
       print(teachersList)
       try:
          
@@ -26,7 +27,8 @@ def index(request):
       request.session('visitTime') =visitTime
       context={
          'visitTime':visitTime,
-         'teachersList':teachersList
+         'teachersList':teachersList,
+         'num_students':num_students,
       }
       print('visitTime',visitTime)
       return render(request,'index.html')
