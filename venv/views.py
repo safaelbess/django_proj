@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate
 from .forms import RegistrationForm
 from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404 
 
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
@@ -81,3 +82,9 @@ def register(request):
 def logout_page(request):
    logout(request)
    return redirect('/login')
+
+
+
+def subject_detail(request,pk):
+   subject = get_object_or_404(Teacher,pk=pk)
+   return render('subject_detail.html',{'subject' : subject})

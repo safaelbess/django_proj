@@ -14,6 +14,9 @@ class Teacher(models.Model):
 
     def __str__(self):
         return self.first_name 
+    
+    class Meta :
+        ordering = ['first_name','last_name']
 
 
 
@@ -21,9 +24,12 @@ class Subject(models.Model):
     sub_name = models.CharField(max_length=200)
     teacher_name = models.ForeignKey('Teacher')
     student_name = models.ForeignKey('Student')
+    description= models.CharField(max_length=200)
 
     def __str__(self):
         return self.sub_name 
+    def get_absolute_url(self):
+        return reverse('subject_detail',kwargs={"pk":self.pk})
  
 
 class Student(models.Model):
@@ -36,3 +42,6 @@ class Student(models.Model):
     def __str__(self):
         return self.first_name 
     
+    
+    class Meta :
+        ordering = ['first_name','last_name']

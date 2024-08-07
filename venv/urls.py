@@ -7,6 +7,7 @@ urlpatterns = [
     path('login/',login_page,name='login'),
     path('register/', register, name='register' ),
     path('logout/', logout_page, name='logout'),
+    path('subject/<int:pk>/', subject_detail , name='subject_detail')
     ##path('teacher/', teacher_page , name='teacher' ),
     ##path('student/', student_page , name='student'),
     ##path('subject/', subject_page , name='subject'),
