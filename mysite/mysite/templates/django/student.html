@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student page</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+  {% extends 'base.html'}
+  {% block content %}
+
+ 
+ <h1>welcome to student page</h1>   
+
+ {% for student in subject %}
+ <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ student.first_name }}</h5>
+    <h5 class="card-title">{{ student.last_name }}</h5>
+
+    <p class="card-text">{{ student.teacher_name }}</p>
+    <a href="{{ student.get_absolute_url}}" class="card-link">details</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
+ </body>

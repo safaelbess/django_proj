@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subject Details</title>
+    <title>student Information</title>
 </head>
 <body>
     {% extends 'base.html'}
     {% block content %}
   
-   <p>{{ subject.sub_name }}</p>
-   <p>{{ subject.description }}</p>
+   <p>{{ student.first_name }}</p>
+   <p>{{ student.last_name }}</p>
+   <p>{{ student.student_class }}</p>
+   <p>{{ student.teacher_name }}</p>
+   <p>{{ student.subject_name }}</p>
    {% end block %}
     
 </body>

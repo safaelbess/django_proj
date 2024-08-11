@@ -88,3 +88,11 @@ def logout_page(request):
 def subject_detail(request,pk):
    subject = get_object_or_404(Teacher,pk=pk)
    return render('subject_detail.html',{'subject' : subject})
+
+
+def delete_subject(request , Id):
+   if request.method== 'POST':
+      subject = Subject.object.get(id=Id)
+      subject.delete()
+      print('subject', subject)
+      return redirect('subject')
