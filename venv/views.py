@@ -69,7 +69,7 @@ def register(request):
         if form.is_valid():
            form.save()
            response = redirect('/login/')
-           return response
+           return HttpResponse('saved')
         else:
            return render(request,'register.html',{'form':form})
 
@@ -96,3 +96,8 @@ def delete_subject(request , Id):
       subject.delete()
       print('subject', subject)
       return redirect('subject')
+   
+   elif request.method =="PUT":
+      subject = Subject.object.get(id=Id)
+      print(request.PUT['name'])
+      return HttpResponse('updated')
